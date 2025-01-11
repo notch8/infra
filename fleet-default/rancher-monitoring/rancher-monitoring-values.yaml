@@ -19,10 +19,10 @@ prometheus:
     resources:
       limits:
         cpu: 2000m
-        memory: 3000Mi
+        memory: 10000Mi
       requests:
         cpu: 1500m
-        memory: 1500Mi
+        memory: 5000Mi
     retentionSize: 500GiB
     scrapeInterval: 1m
     storageSpec:
