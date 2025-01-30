@@ -36,4 +36,4 @@ prometheus:
           storageClassName: gp2
           volumeMode: Filesystem
 prometheusOperator:
-  hostNetwork: true
+  hostNetwork: false
