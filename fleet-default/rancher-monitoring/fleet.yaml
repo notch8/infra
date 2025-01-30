@@ -3,7 +3,7 @@ helm:
   releaseName: rancher-monitoring
   repo: https://charts.rancher.io
   chart: rancher-monitoring
-  version: 102.0.2+up40.1.2
+  version: 105.1.2+up61.3.2
   values:
     global:
       cattle:
