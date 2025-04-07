@@ -2,7 +2,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: mysql-tilma-dev-shared-efs
+  name: mysql-tilma-dev-shared-efs-subpath
 spec:
   capacity:
     storage: 101Gi
@@ -13,4 +13,4 @@ spec:
   storageClassName: efs-sc
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-0d90713bb84754a4d:/tilma
+    volumeHandle: fs-0d90713bb84754a4d:/tilma/mysql_backups
