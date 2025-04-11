@@ -1,0 +1,7 @@
+apiVersion: apps/v1
+kind: Deployment
+name: mysql-operator
+namespace: mysql-operator
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: helm
