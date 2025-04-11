@@ -8,3 +8,14 @@ overrideTargets:
   - clusterSelector:
       matchLabels:
         name: r2-gc
+diff:
+  comparePatches:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mysql-operator
+      namespace: mysql-operator
+      operations:
+        - {
+            "op": "remove",
+            "path": "/metadata/labels/app.kubernetes.io\/managed-by",
+          }
