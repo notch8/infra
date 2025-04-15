@@ -2,6 +2,7 @@ defaultNamespace: cattle-logging-system
 helm:
   releaseName: loki
   repo: https://grafana.github.io/helm-charts
+  version: "5.43.6"
   chart: loki
   valuesFiles:
     - loki-values.yaml
@@ -17,6 +18,6 @@ diff:
       name: loki-backend
       namespace: cattle-logging-system
       operations:
-        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenDeleted"}
-        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenScaled"}
-        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy"}
+      - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenDeleted"}
+      - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenScaled"}
+      - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy"}
