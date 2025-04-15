@@ -17,5 +17,5 @@ diff:
       operations:
         - {
             "op": "remove",
-            "path": "/metadata/labels/app.kubernetes.io/managed-by",
+            "path": "/metadata/labels/app.kubernetes.io\\/managed-by",
           }
