@@ -1,7 +1,7 @@
 credentials:
   root:
     user: root
-#    password: sakila
+    #    password: sakila
     host: "%"
 tls:
   useSelfSigned: true
@@ -13,7 +13,6 @@ baseServerId: 1000
 
 logs:
   error:
-    enabled: true
     collect: false
   general:
     enabled: true
@@ -64,17 +63,16 @@ logs:
 #      sink:
 ##       rawConfig:
 
-
 podSpec:
   containers:
-  - name: mysql
-    resources:
-      requests:
-        cpu: '2'
-        memory: 16Gi
-      limits:
-        cpu: '4'
-        memory: 24Gi
+    - name: mysql
+      resources:
+        requests:
+          cpu: "2"
+          memory: 16Gi
+        limits:
+          cpu: "4"
+          memory: 24Gi
 
 #podAnnotations:
 #podLabels:
@@ -127,22 +125,20 @@ datadirVolumeClaimTemplate:
 #    rootUser:
 #    credentials:
 
-
 backupProfiles:
-- name: dump-instance-profile-pvc
-  dumpInstance:
-    storage:
-      persistentVolumeClaim:
-        claimName: mysql-tilma-dev-shared-efs
+  - name: dump-instance-profile-pvc
+    dumpInstance:
+      storage:
+        persistentVolumeClaim:
+          claimName: mysql-tilma-dev-shared-efs
 
 backupSchedules:
-- name: schedule-ref
-  schedule: "5 1 * * *"
-  timeZone: "Europe/Amsterdam"
-  deleteBackupData: false
-  backupProfileName: dump-instance-profile-pvc
-  enabled: true
-
+  - name: schedule-ref
+    schedule: "5 1 * * *"
+    timeZone: "Europe/Amsterdam"
+    deleteBackupData: false
+    backupProfileName: dump-instance-profile-pvc
+    enabled: true
 
 # If you would like to debug the Helm output with `helm template`, you need
 # to turn disableLookups on as during `helm template` Helm won't contact the kube API
