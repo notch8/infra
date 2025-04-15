@@ -17,3 +17,11 @@ overrideTargets:
         name: r2-gc
 dependsOn:
   - name: main-fleet-default-mysql-tilma-dev-pre
+diff:
+  comparePatches:
+    - apiVersion: mysql.oracle.com/v2
+      kind: InnoDBCluster
+      name: mysql-tilma-dev
+      namespace: mysql-tilma-dev
+      operations:
+        - { "op": "ignore" }
