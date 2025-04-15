@@ -133,7 +133,7 @@ backupProfiles:
   dumpInstance:
     storage:
       persistentVolumeClaim:
-        claimName: mysql-tilma-dev-shared-efs-subpath
+        claimName: mysql-tilma-dev-shared-efs
 
 backupSchedules:
 - name: schedule-ref
