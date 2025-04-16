@@ -17,6 +17,6 @@ diff:
       operations:
         - {
             "op": "replace",
-            "path": "/metadata/labels/app.kubernetes.io\\/managed-by",
+            "path": "/metadata/labels/app.kubernetes.io\/managed-by",
             "value": "helm"
           }
