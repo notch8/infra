@@ -16,6 +16,7 @@ diff:
       namespace: mysql-operator
       operations:
         - {
-            "op": "remove",
+            "op": "replace",
             "path": "/metadata/labels/app.kubernetes.io\\/managed-by",
+            "value": "Helm"
           }
