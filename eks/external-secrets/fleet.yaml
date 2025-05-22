@@ -1,7 +1,7 @@
 defaultNamespace: external-secrets
 helm:
   repo: https://charts.external-secrets.io
-  version: v0.16.2
+  version: v0.17.0
   chart: external-secrets
   takeOwnership: true
   releaseName: external-secrets
