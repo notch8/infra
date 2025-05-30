@@ -1,0 +1,57 @@
+resources:
+  requests:
+    cpu: 500m
+    memory: 128Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+configuration:
+  provider: aws
+  uploaderType: kopia
+  backupStorageLocation:
+  - name: default
+    provider: aws
+    bucket: r2-besties-velero-backups
+    default: true
+    config:
+      region: us-west-2
+  volumeSnapshotLocation:
+  - name: default
+    provider: aws
+    config:
+      region: us-west-2
+      profile: default
+deployNodeAgent: true
+credentials:
+  useSecret: true
+  existingSecret: velero-aws-credentials
+initContainers:
+- name: velero-plugin-for-csi
+  image: velero/velero-plugin-for-csi:v0.7.0
+  imagePullPolicy: IfNotPresent
+  volumeMounts:
+  - mountPath: /target
+    name: plugins
+- name: velero-plugin-for-aws
+  image: velero/velero-plugin-for-aws:v1.9.0
+  imagePullPolicy: IfNotPresent
+  volumeMounts:
+  - mountPath: /target
+    name: plugins
+schedules:
+  daily-cluster:
+    labels:
+      sched: daily
+    # Monday through Saturday at 06:30
+    schedule: 5 1 * * Mon-Sat
+    template:
+      # 14 days
+      ttl: 336h
+  weekly-cluster:
+    labels:
+      sched: weekly
+    # Every Sunday at 04:30
+    schedule: 30 1 * * Sun
+    template:
+      # 60 days
+      ttl: 1440h
