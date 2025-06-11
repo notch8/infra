@@ -24,12 +24,15 @@ controller:
     # real-ip-header: "proxy_protocol"
   service:
     type: LoadBalancer
+    nodePorts:
+      http: 31076
+      https: 32587
     annotations:
       ingressclass.kubernetes.io/is-default-class: "true"
       service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
       service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
       service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /healthz
-      service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: 10254
+      service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "32587"
       service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
       service.beta.kubernetes.io/aws-load-balancer-ip-address-type: ipv4
       service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: instance
