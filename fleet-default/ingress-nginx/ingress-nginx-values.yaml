@@ -24,7 +24,7 @@ controller:
     # real-ip-header: "proxy_protocol"
   service:
     type: LoadBalancer
-    externalTrafficPolicy: Local
+    externalTrafficPolicy: Cluster
     nodePorts:
       http: 31076
       https: 32587
