@@ -3,6 +3,15 @@ loki:
 nameOverride: loki
 serviceMonitor:
   enabled: true
+spec:
+  containers:
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 50m
+      limits:
+        memory: 500Mi
+        cpu: 100m
 # monitoring:
 #   dashboards:
 #     enabled: true
