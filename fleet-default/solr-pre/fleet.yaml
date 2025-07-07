@@ -1,3 +1,0 @@
-defaultNamespace: solr
-overrideTargets:
- - clusterGroup: samvera
