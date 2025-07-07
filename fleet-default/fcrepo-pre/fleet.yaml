@@ -1,3 +1,0 @@
-defaultNamespace: fcrepo
-overrideTargets:
- - clusterGroup: samvera

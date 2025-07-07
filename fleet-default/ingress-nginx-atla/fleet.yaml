@@ -1,5 +1,0 @@
-defaultNamespace: ingress-nginx
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        name: r2-atla-dl
