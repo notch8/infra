@@ -3,3 +3,11 @@ loki:
 nameOverride: loki
 serviceMonitor:
   enabled: true
+backend:
+  resources:
+    requests:
+      memory: 200MiB
+      cpu: 1m
+    limits:
+      memory: 400MiB
+      cpu: 1m
