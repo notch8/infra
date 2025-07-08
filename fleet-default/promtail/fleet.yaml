@@ -8,9 +8,10 @@ helm:
     config:
       lokiAddress: http://loki-write.cattle-logging-system.svc.cluster.local:3100/loki/api/v1/push
     resources:
-      limits:
-        cpu: 800m
-        memory: 2000Mi
       requests:
-        cpu: 600m
-        memory: 1050Mi
+        cpu: 100m
+        memory: 1050MiB
+      limits:
+        cpu: 150m
+        memory: 2000MiB
+
