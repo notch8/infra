@@ -1,0 +1,11 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+values:
+  resources:
+    requests:
+      memory: 25MiB
+      cpu: 0.01m
+    limits:
+      memory: 50MiB
+      cpu: 0.1m
