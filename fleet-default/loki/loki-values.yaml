@@ -6,8 +6,8 @@ serviceMonitor:
 backend:
   resources:
     requests:
-      memory: 25Mi
+      memory: 250Mi
       cpu: 1m
     limits:
-      memory: 50Mi
+      memory: 500Mi
       cpu: 1m
