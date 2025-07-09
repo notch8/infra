@@ -10,4 +10,12 @@ backend:
       cpu: 1m
     limits:
       memory: 500Mi
-      cpu: 1m
+      cpu: 2m
+gateway:
+  resources:
+    requests:
+      memory: 120Mi
+      cpu: 1
+    limits:
+      memory: 240Mi
+      cpu: 2
