@@ -27,3 +27,11 @@ grafana-agent-operator:
     limits:
       memory: 500Mi
       cpu: 20m
+read:
+  resources:
+    requests:
+      memory: 1500Mi
+      cpu: 150m
+    limits:
+      memory: 3000Mi
+      cpu: 300m
