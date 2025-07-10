@@ -41,5 +41,13 @@ write:
       memory: 1.75Gi
       cpu: 60m
     limits:
-      memory: 
+      memory: 3Gi
       cpu: 100m
+logs:
+  resources:
+    requests:
+      memory: 1.75Gi
+      cpu: 150m
+    limits:
+      memory: 3Gi
+      cpu: 300m
