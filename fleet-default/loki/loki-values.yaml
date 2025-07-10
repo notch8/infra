@@ -22,8 +22,8 @@ gateway:
 grafana-agent-operator:
   resources:
     requests:
-      memory: 120Mi
+      memory: 350Mi
       cpu: 10m
     limits:
-      memory: 240Mi
+      memory: 500Mi
       cpu: 20m
