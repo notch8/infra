@@ -63,6 +63,7 @@ In some cases, the values will be in a separate file - in that case the fleet.ya
 
 ### Determine the appropriate requests and limits for the resource
 #### CPU
+```
 ninety_five_percentile_cpu = quantile_over_time(0.95, rate(container_cpu_usage_seconds_total{container=~"cert-manager.*"}[5m])[7d:5m])
 
 cpu_request (in millicores) = ninety_five_percentile_cpu * 1.5 * 1,000 
@@ -70,8 +71,10 @@ cpu_request (in millicores) = ninety_five_percentile_cpu * 1.5 * 1,000
 ninety_nine_percentile_cpu = quantile_over_time(0.99, rate(container_cpu_usage_seconds_total{container=~"cert-manager.*"}[5m])[7d:5m])
 
 cpu_limit (in millicores) = ninety_nine_percentile_cpu * 2 * 1,000
+```
 
 #### Memory
+```
 ninety_five_percentile_mem = quantile_over_time(0.95, container_memory_working_set_bytes{container=~"cert-manager.*"}[7d:5m])
 ninety_nine_percentile_mem = quantile_over_time(0.99, container_memory_working_set_bytes{container=~"cert-manager.*"}[7d:5m])
 
@@ -80,3 +83,4 @@ memory_request =  ninety_five_percentile_mem * 1.1
 memory_limit = ninety_nine_percentile_mem * 1.5
 
 Prometheus returns memory in bytes, so you'll need to convert to either Gi or Mi (I just use a Google converter search)
+```
