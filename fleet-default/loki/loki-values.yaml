@@ -7,10 +7,10 @@ backend:
   resources:
     requests:
       memory: 250Mi
-      cpu: 10m
+      cpu: 20m
     limits:
       memory: 500Mi
-      cpu: 20m
+      cpu: 30m
 gateway:
   resources:
     requests:
@@ -35,3 +35,11 @@ read:
     limits:
       memory: 800Mi
       cpu: 300m
+write:
+  resources:
+    requests:
+      memory: 1.75Gi
+      cpu: 60m
+    limits:
+      memory: 
+      cpu: 100m
