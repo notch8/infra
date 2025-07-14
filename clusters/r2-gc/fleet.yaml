@@ -1,0 +1,41 @@
+namespace: fleet-system
+
+# Fleet bundle configuration for Rancher node templates
+targetCustomizations:
+  - name: r2-gc
+    clusterSelector:
+      matchLabels:
+        env: r2-gc
+    helm:
+      values:
+        nodeTemplate:
+          launchTemplate:
+            name: rancher-node-template-r2-gc
+            metadataOptions:
+              httpTokens: required
+              httpPutResponseHopLimit: 2
+              httpEndpoint: enabled
+            tagSpecifications:
+              - resourceType: instance
+                tags:
+                  ManagedBy: fleet
+                  # Valid tag keys instead of problematic ones
+                  k8s-cluster-autoscaler-enabled: "true"
+                  k8s-cluster-autoscaler-r2-gc: "owned"
+
+# Diff options for better visibility
+diff:
+  comparePatches:
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rancher-node-config
+      namespace: cattle-system
+      operations:
+        - {"op": "remove", "path": "/data"}
+
+# Dependencies
+dependsOn:
+  - name: aws-infrastructure
+    selector:
+      matchLabels:
+        name: aws-base-infrastructure
