@@ -4,6 +4,6 @@ helm:
   chart: cert-manager
   takeOwnership: true
   releaseName: cert-manager
-  version: v1.16.5
+  version: v1.17.4
   values:
     installCRDs: true
