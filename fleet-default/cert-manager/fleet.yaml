@@ -7,3 +7,9 @@ helm:
   version: v1.17.4
   values:
     installCRDs: true
+    # Temporary to smooth way to v1.18.x upgrade
+    # See https://cert-manager.io/docs/releases/release-notes/release-notes-1.18/
+    featureGates:
+      DefaultPrivateKeyRotationPolicyAlways: false
+    global:
+      revisionHistoryLimit: 10
