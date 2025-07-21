@@ -4,11 +4,11 @@ helm:
   chart: cert-manager
   takeOwnership: true
   releaseName: cert-manager
-  version: v1.17.4
+  version: v1.18.2
   values:
     installCRDs: true
     # Temporary to smooth way to v1.18.x upgrade
     # See https://cert-manager.io/docs/releases/release-notes/release-notes-1.18/
-    # featureGates: "DefaultPrivateKeyRotationPolicyAlways=false"
+    featureGates: "DefaultPrivateKeyRotationPolicyAlways=false"
     global:
       revisionHistoryLimit: 10
