@@ -7,7 +7,7 @@ If you need to add or change external secrets you need to do the following steps
 ### Prerequisites
 - AWS CLI
 - Correct AWS_PROFILE AND AWS_REGION set in the ENV vars
-- 1password cli installed and configred (optional for op commands)
+- 1password cli installed and configured (optional for op commands)
 
 ### Download the secret file (or use the 1password GUI)
 
