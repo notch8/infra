@@ -15,6 +15,10 @@ controller:
     proxy-send-timeout: "3600"
     ssl-redirect: "false"
     use-forwarded-headers: "true"
+    # Disable strict path validation, to work around a bug in ingress-nginx
+    # https://github.com/kubernetes/ingress-nginx/issues/11176
+    # Required for cert-manager v1.18 and higher
+    strict-validate-path-type: false
     # use-proxy-protocol: "true"
     # real-ip-header: "proxy_protocol"
   service:
