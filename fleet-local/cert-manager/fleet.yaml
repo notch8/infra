@@ -7,3 +7,10 @@ helm:
   version: v1.10.2
   values:
     installCRDs: false
+    resources:
+      requests:
+        cpu: 20m      # 0.013 * 1500 = 19.5m ≈ 20m
+        memory: 59Mi  # 53 * 1.1 = 58.3Mi ≈ 59Mi
+      limits:
+        cpu: 28m      # 0.014 * 2000 = 28m
+        memory: 81Mi  # 54 * 1.5 = 81Mi
