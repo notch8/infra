@@ -37,3 +37,35 @@ prometheus:
           volumeMode: Filesystem
 prometheusOperator:
   hostNetwork: false
+prometheus-node-exporter:
+  resources:
+    requests:
+      cpu: 3m       # 0.0019 * 1500 = 2.85m ≈ 3m
+      memory: 16Mi  # 14.2 * 1.1 = 15.62Mi ≈ 16Mi
+    limits:
+      cpu: 4m       # 0.002 * 2000 = 4m
+      memory: 23Mi  # 15 * 1.5 = 22.5Mi ≈ 23Mi
+prometheus-adapter:
+  resources:
+    requests:
+      cpu: 1650m     # 1.1 * 1500 = 1650m
+      memory: 5630Mi # 4.8 * 1024 = 4915Mi; 4915 * 1.1 = 5406.5Mi; ≈ 5630Mi (rounded up for buffer)
+    limits:
+      cpu: 2400m     # 1.2 * 2000 = 2400m
+      memory: 8448Mi # 5.5 * 1024 = 5632Mi; 5632 * 1.5 = 8448Mi
+rancher-monitoring:
+  resources:
+    requests:
+      cpu: 1m        # 0.0007 * 1500 = 1.05m ≈ 1m
+      memory: 35Mi   # 31.6 * 1.1 = 34.76Mi ≈ 35Mi
+    limits:
+      cpu: 1m        # 0.0007 * 2000 = 1.4m ≈ 1m
+      memory: 49Mi   # 32.3 * 1.5 = 48.45Mi ≈ 49Mi
+kube-state-metrics:
+  resources:
+    requests:
+      cpu: 3m        # 0.002 * 1500 = 3m
+      memory: 29Mi   # 26.4 * 1.1 = 29.04Mi ≈ 29Mi
+    limits:
+      cpu: 4m        # 0.002 * 2000 = 4m
+      memory: 41Mi   # 27.1 * 1.5 = 40.65Mi ≈ 41Mi

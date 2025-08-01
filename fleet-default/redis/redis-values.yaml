@@ -1,4 +1,18 @@
 replica:
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 27m      # 0.018 * 1500 = 27m
+      memory: 27Mi  # 24.5 * 1.1 = 26.95Mi ≈ 27Mi
+    limits:
+      cpu: 36m      # 0.018 * 2000 = 36m
+      memory: 37Mi  # 24.8 * 1.5 = 37.2Mi ≈ 37Mi
 metrics:
   enabled: true
+  resources:
+    requests:
+      cpu: 27m      # 0.018 * 1500 = 27m
+      memory: 27Mi  # 24.5 * 1.1 = 26.95Mi ≈ 27Mi
+    limits:
+      cpu: 36m      # 0.018 * 2000 = 36m
+      memory: 37Mi  # 24.8 * 1.5 = 37.2Mi ≈ 37Mi
