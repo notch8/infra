@@ -18,10 +18,10 @@ prometheus:
     evaluationInterval: 1m
     resources:
       limits:
-        cpu: 2000m
-        memory: 16000Mi
+        cpu: 1200m
+        memory: 12000Mi
       requests:
-        cpu: 1500m
+        cpu: 500m
         memory: 5000Mi
     retention: 10d
     scrapeInterval: 1m
