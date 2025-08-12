@@ -65,7 +65,7 @@ kube-state-metrics:
   resources:
     requests:
       cpu: 5m        # 0.002 * 1500 = 3m - Calculated values were too low and were causing the pods to go into crash loopback state
-      memory: 50Mi   # 26.4 * 1.1 = 29.04Mi ≈ 29Mi
+      memory: 75Mi   # 26.4 * 1.1 = 29.04Mi ≈ 29Mi
     limits:
       cpu: 10m        # 0.002 * 2000 = 4m
-      memory: 75Mi   # 27.1 * 1.5 = 40.65Mi ≈ 41Mi
+      memory: 100Mi   # 27.1 * 1.5 = 40.65Mi ≈ 41Mi
