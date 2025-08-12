@@ -64,8 +64,8 @@ rancher-monitoring:
 kube-state-metrics:
   resources:
     requests:
-      cpu: 3m        # 0.002 * 1500 = 3m
-      memory: 29Mi   # 26.4 * 1.1 = 29.04Mi ≈ 29Mi
+      cpu: 5m        # 0.002 * 1500 = 3m - Calculated values were too low and were causing the pods to go into crash loopback state
+      memory: 50Mi   # 26.4 * 1.1 = 29.04Mi ≈ 29Mi
     limits:
-      cpu: 4m        # 0.002 * 2000 = 4m
-      memory: 41Mi   # 27.1 * 1.5 = 40.65Mi ≈ 41Mi
+      cpu: 10m        # 0.002 * 2000 = 4m
+      memory: 75Mi   # 27.1 * 1.5 = 40.65Mi ≈ 41Mi
