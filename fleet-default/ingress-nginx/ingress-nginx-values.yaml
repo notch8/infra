@@ -51,15 +51,6 @@ controller:
     limits:
       cpu: 180m     # 0.09 * 2000 = 180m
       memory: 636Mi # 424 * 1.5 = 636Mi
-  admissionWebhooks:
-    createSecretJob:
-      resources: # Admission Webhook to create secret job
-        requests:
-          cpu: 75m      # 0.05 * 1500 = 75m
-          memory: 450Mi # 409 * 1.1 = 449.9Mi ≈ 450Mi
-        limits:
-          cpu: 180m     # 0.09 * 2000 = 180m
-          memory: 636Mi # 424 * 1.5 = 636Mi
 defaultBackend:
   resources: # optional default backend deployment
     requests:
