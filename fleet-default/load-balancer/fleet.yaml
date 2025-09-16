@@ -11,5 +11,6 @@ helm:
   releaseName: aws-load-balancer-controller
   values:
     clusterName: global.fleet.clusterLabels.name
+    region: us-west-2
 overrideTargets:
   - clusterGroup: loadbalancer
