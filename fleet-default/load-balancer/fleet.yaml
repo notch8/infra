@@ -12,5 +12,6 @@ helm:
   values:
     clusterName: global.fleet.clusterLabels.name
     region: us-west-2
+    vpcId: vpc-021590ab57f70abf8
 overrideTargets:
   - clusterGroup: loadbalancer
