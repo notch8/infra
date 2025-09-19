@@ -21,9 +21,9 @@ There are two possible scenarios - creating a completely new node group - needed
 1. Go to the new nodes, and check whether they have any workloads in "Crashloopbackoff" status, or that have a lot of restarts - this indicates a potential configuration error.
 
 ###### Troubleshooting
-1. A common issue is with the instance metadata service (IMDSv2) - it needs to *either* be set to "optional" *or* allow for 2 hops - otherwise some services will not be able to retrieve information they need. You can check this by going to console.The [AWS EC2 page](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#Instances:instanceState=running;sort=desc:launchTime), right-click on one of the new instance names, go to 'instance settings' -> 'Modify instance metadata options' 
+1. A common issue is with the instance metadata service (IMDSv2) - it needs to *either* be set to "optional" *or* allow for 2 hops - otherwise some services will not be able to retrieve information they need. You can check this by going to console.The [AWS EC2 page](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#Instances:instanceState=running;sort=desc:launchTime), right-click on one of the new instance names, go to 'instance settings' -> 'Modify instance metadata options' and check whether the IMDSv2 is optional or required, and the number of hops allowed.
 
-##### Controlled roll-over
+##### [WIP] Controlled roll-over
 This is for potentially breaking changes, and when we want to be able to test infrastructure changes on only certain namespaces (such as the dev namespaces) first. There is still some risk, since some services, such as ElasticSearch, do not have multiple instances. 
 
 1. Setup: make sure you are in the right context! run `kubectl config current-context` and ensure you are in the context you expect.
