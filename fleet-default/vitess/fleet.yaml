@@ -1,0 +1,7 @@
+defaultNamespace: vitess
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
+# dependsOn:
+# - name: main-fleet-default-glasscanvas-infra-pre

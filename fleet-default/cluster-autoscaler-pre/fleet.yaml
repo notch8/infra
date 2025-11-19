@@ -1,3 +1,0 @@
-defaultNamespace: cluster-autoscaler
-overrideTargets:
- - clusterGroup: loadbalancer
