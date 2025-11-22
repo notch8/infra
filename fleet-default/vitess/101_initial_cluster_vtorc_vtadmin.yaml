@@ -9,14 +9,12 @@ metadata:
   namespace: vitess
 spec:
   images:
-    vtctld: vitess/lite:mysql80
+    vtctld: vitess/lite:latest
     vtadmin: vitess/vtadmin:latest
-    vtgate: vitess/lite:mysql80
-    vttablet: vitess/lite:mysql80
-    vtbackup: vitess/lite:mysql80
-    vtorc: vitess/lite:mysql80
-    mysqld:
-      mysql80Compatible: mysql:8.0.40
+    vtgate: vitess/lite:latest
+    vttablet: vitess/lite:latest
+    vtbackup: vitess/lite:latest
+    vtorc: vitess/lite:latest
     mysqldExporter: prom/mysqld-exporter:v0.14.0
   cells:
     - name: uswest2a
@@ -25,7 +23,7 @@ spec:
         authentication:
           static:
             secret:
-              name: vtgate-auth-dev
+              name: dev-cluster-config
               key: users.json
         extraFlags:
           tablet-refresh-interval: 10s
@@ -40,13 +38,13 @@ spec:
           tls:
             certSecret:
               key: cert.pem
-              name: example-cluster-config
+              name: dev-cluster-config
             keySecret:
               key: key.pem
-              name: example-cluster-config
+              name: dev-cluster-config
   vitessDashboard:
     cells:
-      - zone1
+      - uswest2a
     extraFlags:
       security_policy: read-only
     replicas: 2
@@ -61,7 +59,7 @@ spec:
       name: dev-cluster-config
       key: rbac.yaml
     cells:
-      - zone1
+      - uswest2a
     apiAddresses:
       - http://localhost:14001
     replicas: 1
@@ -122,14 +120,14 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: dev-cluster-config
-  namespace: example
+  namespace: vitess
 type: Opaque
 stringData:
   users.json: |
     {
       "user": [{
         "UserData": "user",
-        "Password": ""
+        "Password": "password"
       }]
     }
   init_db.sql: |
